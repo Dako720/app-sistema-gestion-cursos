@@ -1,9 +1,8 @@
 package co.github.dako720.sistemagestionrecursos.application.Excepciones;
 
-public class CourseNotFoundException extends RuntimeException {
-    public CourseNotFoundException(String message) {
+public class CourseNotFoundException extends BusinessException {
 
-
-        super(message);
+    public CourseNotFoundException(Long id) {
+        super("Course not found: " + id);
     }
 }

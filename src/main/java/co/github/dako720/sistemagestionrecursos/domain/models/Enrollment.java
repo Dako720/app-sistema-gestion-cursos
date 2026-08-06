@@ -1,59 +1,69 @@
 package co.github.dako720.sistemagestionrecursos.domain.models;
 
 import java.time.LocalDate;
-import co.github.dako720.sistemagestionrecursos.domain.models.Enrollment;
 
 public class Enrollment {
 
-  private  Long id;
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public Enrollment(Long id) {
-        this.id = id;
-    }
-
-    public void setEnrollmentDate(LocalDate enrollmentDate) {
-        this.enrollmentDate = enrollmentDate;
-    }
-
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setStatus(EnrollmentStatus status) {
-        this.status = status;
-    }
-
+    private Long id;
     private Long studentId;
-   private Long courseId;
+    private Long courseId;
+    private LocalDate enrollmentDate;
+    private EnrollmentStatus status;
 
-    public LocalDate getEnrollmentDate() {
-        return enrollmentDate;
+    public Enrollment() {
+    }
+
+    public Enrollment(Long id, Long studentId, Long courseId, LocalDate enrollmentDate, EnrollmentStatus status) {
+        this.id = id;
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.enrollmentDate = enrollmentDate;
+        this.status = status;
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getStudentId() {
         return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
     public Long getCourseId() {
         return courseId;
     }
 
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public LocalDate getEnrollmentDate() {
+        return enrollmentDate;
+    }
+
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
+        this.enrollmentDate = enrollmentDate;
+    }
+
     public EnrollmentStatus getStatus() {
         return status;
     }
 
-    private LocalDate enrollmentDate;
-    private EnrollmentStatus status;
+    public void setStatus(EnrollmentStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Enrollment{id=" + id + ", studentId=" + studentId + ", courseId=" + courseId +
+                ", enrollmentDate=" + enrollmentDate + ", status=" + status + "}";
+    }
 }

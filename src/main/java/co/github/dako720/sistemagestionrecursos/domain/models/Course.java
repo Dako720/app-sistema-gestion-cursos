@@ -1,57 +1,67 @@
 package co.github.dako720.sistemagestionrecursos.domain.models;
 
-import java.time.LocalDate;
-
 public class Course {
 
     private Long id;
+    private String code;
+    private String name;
+    private String description;
+    private Integer maxCapacity;
 
-    public Course(Long id) {
+    public Course() {
+    }
+
+    public Course(Long id, String code, String name, String description, Integer maxCapacity) {
         this.id = id;
-    }
-
-    public void setCode(String code) {
         this.code = code;
-    }
-
-    public void setMaxCapacity(Integer maxCapacity) {
+        this.name = name;
+        this.description = description;
         this.maxCapacity = maxCapacity;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    private String code;
-    private  String name;
-    private String description;
-    private Integer maxCapacity;
-
-    public Long getId() {
-        return id;
-    }
-
     public String getCode() {
         return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Integer getMaxCapacity() {
         return maxCapacity;
+    }
+
+    public void setMaxCapacity(Integer maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{id=" + id + ", code='" + code + "', name='" + name +
+                "', description='" + description + "', maxCapacity=" + maxCapacity + "}";
     }
 }
