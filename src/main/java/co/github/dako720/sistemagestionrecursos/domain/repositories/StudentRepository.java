@@ -18,4 +18,6 @@ public interface StudentRepository {
     void deleteById(Long id);
 
     boolean existsById(Long id);
+
+    boolean existsByEmail(String email);
 }
