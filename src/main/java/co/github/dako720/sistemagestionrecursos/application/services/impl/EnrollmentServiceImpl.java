@@ -13,11 +13,13 @@ import co.github.dako720.sistemagestionrecursos.domain.models.EnrollmentStatus;
 import co.github.dako720.sistemagestionrecursos.domain.repositories.CourseRepository;
 import co.github.dako720.sistemagestionrecursos.domain.repositories.EnrollmentRepository;
 import co.github.dako720.sistemagestionrecursos.domain.repositories.StudentRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class EnrollmentServiceImpl implements EnrollmentService {
 
     private final EnrollmentRepository enrollmentRepository;
@@ -25,8 +27,8 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     private final CourseRepository courseRepository;
 
     public EnrollmentServiceImpl(EnrollmentRepository enrollmentRepository,
-                                  StudentRepository studentRepository,
-                                  CourseRepository courseRepository) {
+                                 StudentRepository studentRepository,
+                                 CourseRepository courseRepository) {
         this.enrollmentRepository = enrollmentRepository;
         this.studentRepository = studentRepository;
         this.courseRepository = courseRepository;
@@ -99,7 +101,12 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     }
 
     private EnrollmentDto toDTO(Enrollment enrollment) {
-        return new EnrollmentDto(enrollment.getId(), enrollment.getStudentId(), enrollment.getCourseId(),
-                enrollment.getEnrollmentDate(), enrollment.getStatus());
+        return new EnrollmentDto(
+                enrollment.getId(),
+                enrollment.getStudentId(),
+                enrollment.getCourseId(),
+                enrollment.getEnrollmentDate(),
+                enrollment.getStatus()
+        );
     }
 }

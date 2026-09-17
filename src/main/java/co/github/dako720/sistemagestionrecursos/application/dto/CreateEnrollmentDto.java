@@ -1,14 +1,15 @@
 package co.github.dako720.sistemagestionrecursos.application.dto;
 
-import co.github.dako720.sistemagestionrecursos.domain.models.EnrollmentStatus;
-
-import java.time.LocalDate;
+import jakarta.validation.constraints.NotNull;
 
 public record CreateEnrollmentDto(
+
         Long id,
+
+        @NotNull(message = "El ID del estudiante es obligatorio")
         Long studentId,
-        Long courseId,
-        LocalDate enrollmentDate,
-        EnrollmentStatus status
+
+        @NotNull(message = "El ID del curso es obligatorio")
+        Long courseId
 ) {
 }

@@ -4,6 +4,7 @@ import co.github.dako720.sistemagestionrecursos.application.dto.CreateEnrollment
 import co.github.dako720.sistemagestionrecursos.application.dto.EnrollmentDto;
 import co.github.dako720.sistemagestionrecursos.application.services.EnrollmentService;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class EnrollmentController {
 
     @PostMapping
     public ResponseEntity<EnrollmentDto> create(
-            @RequestBody CreateEnrollmentDto enrollmentDTO) {
+            @Valid @RequestBody CreateEnrollmentDto enrollmentDTO) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)

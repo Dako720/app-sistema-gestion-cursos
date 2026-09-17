@@ -4,6 +4,7 @@ import co.github.dako720.sistemagestionrecursos.application.dto.CourseDto;
 import co.github.dako720.sistemagestionrecursos.application.dto.CreateCourseDto;
 import co.github.dako720.sistemagestionrecursos.application.services.CourseService;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class CourseController {
 
     @PostMapping
     public ResponseEntity<CourseDto> create(
-            @RequestBody CreateCourseDto courseDTO) {
+            @Valid @RequestBody CreateCourseDto courseDTO) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -49,7 +50,7 @@ public class CourseController {
     @PutMapping("/{id}")
     public ResponseEntity<CourseDto> update(
             @PathVariable Long id,
-            @RequestBody CreateCourseDto courseDTO) {
+            @Valid @RequestBody CreateCourseDto courseDTO) {
 
         return ResponseEntity.ok(
                 courseService.update(id, courseDTO)
